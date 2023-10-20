@@ -1,0 +1,33 @@
+﻿<Window x:Class="wpf_layout_testing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_layout_testing"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" VerticalAlignment="Top" >
+                <ComboBox Name="sdLocation" Width="120" Height="20" Margin="10"></ComboBox>
+                <Label Height="30">Please select SD Card</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" >
+                <ComboBox Width="120" Height="20" Margin="10"></ComboBox>
+                <Label Height="30">Device</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" >
+                <ComboBox Width="120" Height="20" Margin="10"></ComboBox>
+                <Label Height="30">OS</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" >
+                <ComboBox Width="120" Height="20" Margin="10"></ComboBox>
+                <Label Height="30">Engine</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" >
+                <Button Margin="10" Padding="5,0,5,0" Click="Button_Click">Clear SD</Button>
+                <Button Margin="10" Padding="5,0,5,0" Click="Button_Click_1">Load SD</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
