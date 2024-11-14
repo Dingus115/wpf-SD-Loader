@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Height="40" VerticalAlignment="Top" >
-                <ComboBox Name="sdLocation" Width="120" Height="20" Margin="10"></ComboBox>
+                <ComboBox Name="sdLocation" Width="120" Height="20" Margin="10" ItemsSource="{Binding Path=drives}" DisplayMemberPath="driveDescription" SelectedValuePath="driveDescription"/>
                 <Label Height="30">Please select SD Card</Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="40" >

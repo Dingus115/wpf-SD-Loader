@@ -31,7 +31,8 @@ namespace wpf_layout_testing
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string location = selectedLocation();
+            drives drive = sdLocation.SelectedItem as drives;
+            string location = drive.name;
             
             di = new DirectoryInfo(location);
             foreach (FileInfo file in di.GetFiles())
@@ -49,9 +50,13 @@ namespace wpf_layout_testing
             DriveInfo[] allDrives = DriveInfo.GetDrives();
             foreach (DriveInfo i in allDrives)
             {
-                if(i.IsReady == true)
+                if (i.IsReady == true)
                 {
-                    sdLocation.Items.Add(i.ToString() + "\\ " + ((double.Parse(i.TotalSize.ToString()))/1000000000).ToString("N1") + " GB") ;
+                    drives drives = new drives();
+                    drives.driveSize = (double.Parse(i.TotalSize.ToString()) / 1000000000).ToString("N1").ToString() + " GB";
+                    drives.name = i.Name + "\\";
+                    drives.driveDescription = $"{drives.name} {drives.driveSize}";
+                    sdLocation.Items.Add(drives);
                 }
                 else
                 {
@@ -60,20 +65,16 @@ namespace wpf_layout_testing
                 
             }
         }
-        private string selectedLocation()
-        {
-            string location = sdLocation.Text.ToString();
-            char[] temp = new char[location.Length];
-            for(int i = 0; i < 4; i++)
-            {
-                temp[i] = location[i];
-            }
-            location = new string(temp);
-            return location;
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
         }
+    }
+
+    public class drives
+    {
+        public string name { get; set; } = string.Empty;
+        public string driveSize { get; set; } = string.Empty;
+        public string driveDescription { get; set; } = string.Empty;
     }
 }
